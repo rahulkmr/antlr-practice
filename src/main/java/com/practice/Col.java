@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
 
 
 public class Col {
@@ -15,7 +14,7 @@ public class Col {
         InputStream is = System.in;
         if (inputFile != null)
             is = new FileInputStream(inputFile);
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        CharStream input = CharStreams.fromStream(is);
         RowsLexer lexer = new RowsLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         int col = Integer.valueOf(args[0]);
