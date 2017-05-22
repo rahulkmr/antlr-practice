@@ -17,7 +17,7 @@ public class ExprLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, ID=8, INT=9, NEWLINE=10, 
+		T__0=1, T__1=2, T__2=3, MUL=4, DIV=5, ADD=6, SUB=7, ID=8, INT=9, NEWLINE=10, 
 		WS=11;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
@@ -28,15 +28,15 @@ public class ExprLexer extends Lexer {
 	};
 
 	public static final String[] ruleNames = {
-		"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", "ID", "INT", "NEWLINE", 
+		"T__0", "T__1", "T__2", "MUL", "DIV", "ADD", "SUB", "ID", "INT", "NEWLINE", 
 		"WS"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'='", "'*'", "'/'", "'+'", "'-'", "'('", "')'"
+		null, "'='", "'('", "')'", "'*'", "'/'", "'+'", "'-'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, null, null, null, null, "ID", "INT", "NEWLINE", 
+		null, null, null, null, "MUL", "DIV", "ADD", "SUB", "ID", "INT", "NEWLINE", 
 		"WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
@@ -107,9 +107,9 @@ public class ExprLexer extends Lexer {
 		"\3\2\2\2\2\21\3\2\2\2\2\23\3\2\2\2\2\25\3\2\2\2\2\27\3\2\2\2\3\31\3\2"+
 		"\2\2\5\33\3\2\2\2\7\35\3\2\2\2\t\37\3\2\2\2\13!\3\2\2\2\r#\3\2\2\2\17"+
 		"%\3\2\2\2\21(\3\2\2\2\23-\3\2\2\2\25\62\3\2\2\2\27\67\3\2\2\2\31\32\7"+
-		"?\2\2\32\4\3\2\2\2\33\34\7,\2\2\34\6\3\2\2\2\35\36\7\61\2\2\36\b\3\2\2"+
-		"\2\37 \7-\2\2 \n\3\2\2\2!\"\7/\2\2\"\f\3\2\2\2#$\7*\2\2$\16\3\2\2\2%&"+
-		"\7+\2\2&\20\3\2\2\2\')\t\2\2\2(\'\3\2\2\2)*\3\2\2\2*(\3\2\2\2*+\3\2\2"+
+		"?\2\2\32\4\3\2\2\2\33\34\7*\2\2\34\6\3\2\2\2\35\36\7+\2\2\36\b\3\2\2\2"+
+		"\37 \7,\2\2 \n\3\2\2\2!\"\7\61\2\2\"\f\3\2\2\2#$\7-\2\2$\16\3\2\2\2%&"+
+		"\7/\2\2&\20\3\2\2\2\')\t\2\2\2(\'\3\2\2\2)*\3\2\2\2*(\3\2\2\2*+\3\2\2"+
 		"\2+\22\3\2\2\2,.\t\3\2\2-,\3\2\2\2./\3\2\2\2/-\3\2\2\2/\60\3\2\2\2\60"+
 		"\24\3\2\2\2\61\63\7\17\2\2\62\61\3\2\2\2\62\63\3\2\2\2\63\64\3\2\2\2\64"+
 		"\65\7\f\2\2\65\26\3\2\2\2\668\t\4\2\2\67\66\3\2\2\289\3\2\2\29\67\3\2"+
