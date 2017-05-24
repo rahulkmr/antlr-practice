@@ -1,27 +1,30 @@
-grammar Json;
+grammar JSON;
 
 json: object
 | array
 ;
 
-object: '{' pair (',' pair)* '}'
-| '{' '}'
+object
+: '{' pair (',' pair)* '}'  # AnObject
+| '{' '}'   # EmptyObject
 ;
 
 pair: STRING ':' value;
 
-array: '[' value (',' value)* ']'
-| '[' ']'
+array
+: '[' value (',' value)* ']'    # AnArray
+| '[' ']'   # EmptyArray
 ;
 
 
-value: STRING
-| NUMBER
-| object
-| array
-| 'true'
-| 'false'
-| 'null'
+value
+: STRING    # String
+| NUMBER    # Atom
+| object    # ObjectValue
+| array     # ArrayValue
+| 'true'    # Atom
+| 'false'   # Atom
+| 'null'    # Atom
 ;
 
 
